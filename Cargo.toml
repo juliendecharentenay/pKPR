@@ -7,11 +7,11 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-keepass = "0.4.9"
-clap = "2.33"
-simple-error = "0.2"
-web-view = { version = "0.7", features = ["edge"] }
-serde_json = "1.0"
-serde = { version = "1.0", features = ["derive"] }
+keepass = "^0.4.9"
+clap = "^2.33"
+simple-error = "^0.2"
+web-view = { version = "^0.7", features = ["edge"] }
+serde_json = "^1.0"
+serde = { version = "^1.0", features = ["derive"] }
 
 
