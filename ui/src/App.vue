@@ -186,7 +186,16 @@ export default {
     },
     invoke: function(type, o = {}) {
       try {
-        external.invoke(JSON.stringify({...o, type}));
+        const arg = JSON.stringify({...o, type});
+        if (external !== undefined) {
+          external.invoke(arg);
+        } else if (window.external !== undefined) {
+          window.external.invoke(arg);
+        } else if (window.webkit.messageHandlers.external !== undefined) {
+          window.webkit.nessageHandlers.external.postMessage(arg);
+        } else {
+           throw new Error("Failed to located webkit external handler");
+        }
       } catch (e) {
         this.handle_error("Communication error", e);
       }
